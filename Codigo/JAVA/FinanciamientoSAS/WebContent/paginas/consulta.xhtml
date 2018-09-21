@@ -1,0 +1,32 @@
+<!DOCTYPE html> 
+<html   xmlns="http://www.w3.org/1999/xhtml"
+	    xmlns:h="http://java.sun.com/jsf/html"
+	    xmlns:f="http://java.sun.com/jsf/core"
+	    xmlns:p="http://primefaces.org/ui"
+	    xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	    xmlns:b="http://bootsfaces.net/ui">
+     
+    <h:head>
+    	<title>Consulta Crédito</title>
+    </h:head>
+ 
+    <h:body>
+	    <h:form>
+	    	
+	    	<h1 style="margin: 2% 0 0 35%">CONSULTA DE CRÉDITO</h1>
+	    	<p:inputText style="margin: 2% 0 0 40%" value="#{CreditoMB.valorSolicitado}"></p:inputText>
+	    	<br></br>
+	    	<p:commandButton style="margin: 2% 0 5% 43%" value="Consultar" actionListener="#{CreditoMB.calculoCredito()}"></p:commandButton>
+	    	
+	    	<p:panel style="boder: 3px solid; height: 18cm; border-radius: 4px">
+	      	   						            
+				<b:dataTable value="#{CreditoMB.copiaDatos}" var="datos">
+					<b:dataTableColumn label="Socio que Realiza el Préstamo" value="datos.socio"/>
+					<b:dataTableColumn label="Cuota Mensual" value="datos.cuota"/>
+					<b:dataTableColumn label="Pago Total Crédito" value="datos.pago"/>
+					<b:dataTableColumn label="Tasa de Interés Mensual" value="datos.tasa"/>
+				</b:dataTable>
+			</p:panel>
+	    </h:form>
+    </h:body>
+</html>
